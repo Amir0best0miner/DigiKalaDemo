@@ -14,7 +14,7 @@
   font-family: IRANYekan;
   font-style: normal;
   font-weight: 400;
-  src: url("../Fonts/IranYekan/iranyekanwebregular.woff2");
+  src: url("https://amir0best0miner.github.io/Fonts/IranYekan/iranyekanwebregular.woff2");
 }
 
 @font-face {
@@ -22,7 +22,7 @@
   font-family: IRANYekan;
   font-style: normal;
   font-weight: 500;
-  src: url("../Fonts/IranYekan/iranyekanwebmedium.woff");
+  src: url("https://amir0best0miner.github.io/Fonts/IranYekan/iranyekanwebmedium.woff");
 }
 
 @font-face {
@@ -30,14 +30,14 @@
   font-family: IRANYekan;
   font-style: normal;
   font-weight: 700;
-  src: url("/Fonts/IranYekan/iranyekanwebbold.woff2");
+  src: url("https://amir0best0miner.github.io/Fonts/IranYekan/iranyekanwebbold.woff2");
 }
 
 @font-face {
   font-family: IRANYekan;
   font-style: normal;
   font-weight: 800;
-  src: url("../Fonts/IranYekan/iranyekanwebbold.woff2");
+  src: url("https://amir0best0miner.github.io/Fonts/IranYekan/iranyekanwebbold.woff2");
 }
 
 :root {
