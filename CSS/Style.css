@@ -30,14 +30,14 @@
   font-family: IRANYekan;
   font-style: normal;
   font-weight: 700;
-  src: url("/Fonts/IranYekan/iranyekanwebextrabold.woff");
+  src: url("/Fonts/IranYekan/iranyekanwebbold.woff2");
 }
 
 @font-face {
   font-family: IRANYekan;
   font-style: normal;
   font-weight: 800;
-  src: url("../Fonts/IranYekan/iranyekanwebextrabold.woff");
+  src: url("../Fonts/IranYekan/iranyekanwebbold.woff2");
 }
 
 :root {
@@ -604,7 +604,10 @@ body::-webkit-scrollbar-thumb {
   color: inherit;
 }
 
-.pcMenubar-container > .pcMenubar-sections > :first-child:hover .pcMenu-container {
+.pcMenubar-container
+  > .pcMenubar-sections
+  > :first-child:hover
+  .pcMenu-container {
   position: absolute;
   width: 100vw;
   height: 65vh;
@@ -613,7 +616,10 @@ body::-webkit-scrollbar-thumb {
   cursor: default;
 }
 
-.pcMenubar-container > .pcMenubar-sections > :first-child:hover .pcMenu-overLay {
+.pcMenubar-container
+  > .pcMenubar-sections
+  > :first-child:hover
+  .pcMenu-overLay {
   animation: fadeIn 0.2s ease forwards;
 }
 
@@ -1201,7 +1207,8 @@ body::-webkit-scrollbar-thumb {
   padding: 16px 20px 12px;
   border-radius: var(--xlg-radius);
   position: relative;
-  background: url("../Images/Products/AmazingSuperMarket/Pattern.svg") left center no-repeat;
+  background: url("../Images/Products/AmazingSuperMarket/Pattern.svg") left
+    center no-repeat;
   overflow: hidden;
 }
 
@@ -1492,11 +1499,13 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
 }
 
-.baseOnYourTaste-boxes .baseOnYourTaste-box:not(:nth-child(3)):not(:nth-child(5)) {
+.baseOnYourTaste-boxes
+  .baseOnYourTaste-box:not(:nth-child(3)):not(:nth-child(5)) {
   border-left: 1px solid var(--color-neutral-100);
 }
 
-.baseOnYourTaste-boxes .baseOnYourTaste-box:not(:nth-child(4)):not(:nth-child(5)) {
+.baseOnYourTaste-boxes
+  .baseOnYourTaste-box:not(:nth-child(4)):not(:nth-child(5)) {
   border-bottom: 1px solid var(--color-neutral-100);
 }
 
@@ -1519,7 +1528,7 @@ body::-webkit-scrollbar-thumb {
 .digiClub-container {
   width: 100%;
   background: linear-gradient(76.02deg, #35a6c8 33.32%, #007295 71.55%),
-  radial-gradient(21.29% 87.33% at 50% 50.67%, #7cf2f6 0, #35a6c8 100%);
+    radial-gradient(21.29% 87.33% at 50% 50.67%, #7cf2f6 0, #35a6c8 100%);
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -1865,7 +1874,9 @@ body::-webkit-scrollbar-thumb {
   font-size: var(--sm1);
 }
 
-.mobileFooterAdCard-container > .mobileFooterAdCard-title-container > span:last-child {
+.mobileFooterAdCard-container
+  > .mobileFooterAdCard-title-container
+  > span:last-child {
   font-size: var(--md1);
   font-weight: 700;
 }
@@ -2144,9 +2155,11 @@ body::-webkit-scrollbar-thumb {
   color: var(--color-neutral-400);
 }
 
-.superMarket-modalBox-header .modalCloseBtn {}
+.superMarket-modalBox-header .modalCloseBtn {
+}
 
-.superMarket-modalBox-header .modalCloseBtn svg{}
+.superMarket-modalBox-header .modalCloseBtn svg {
+}
 
 .superMarket-modalBox .superMarket-modalBox-body {
   display: flex;
@@ -2182,7 +2195,8 @@ body::-webkit-scrollbar-thumb {
   font-size: var(--lg);
 }
 
-.superMarket-modalBox-cardTitle-container > i {}
+.superMarket-modalBox-cardTitle-container > i {
+}
 
 .superMarket-modalBox-card > .superMarket-modalBox-gadget {
   display: flex;
