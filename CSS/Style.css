@@ -9,37 +9,6 @@
   scroll-behavior: smooth;
 }
 
-@font-face {
-  font-display: swap;
-  font-family: IRANYekan;
-  font-style: normal;
-  font-weight: 400;
-  src: url("https://amir0best0miner.github.io/Fonts/IranYekan/iranyekanwebregular.woff2");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: IRANYekan;
-  font-style: normal;
-  font-weight: 500;
-  src: url("https://amir0best0miner.github.io/Fonts/IranYekan/iranyekanwebmedium.woff");
-}
-
-@font-face {
-  font-display: swap;
-  font-family: IRANYekan;
-  font-style: normal;
-  font-weight: 700;
-  src: url("https://amir0best0miner.github.io/Fonts/IranYekan/iranyekanwebbold.woff2");
-}
-
-@font-face {
-  font-family: IRANYekan;
-  font-style: normal;
-  font-weight: 800;
-  src: url("https://amir0best0miner.github.io/Fonts/IranYekan/iranyekanwebbold.woff2");
-}
-
 :root {
   --scrollbar-fix: 8px;
   --color-neutral-100: #f0f0f1;
@@ -2386,6 +2355,7 @@ body::-webkit-scrollbar-thumb {
   .support-container {
     display: block;
     padding: 12px;
+    height: 48px;
     background-color: var(--color-primary-700);
     border-radius: var(--oval-radius);
     width: fit-content;
