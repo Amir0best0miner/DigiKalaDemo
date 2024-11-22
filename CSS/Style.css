@@ -1,4 +1,4 @@
-* {
+*:not(p){
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,6 +7,7 @@
   text-decoration: none;
   border: none;
   scroll-behavior: smooth;
+  line-height: 1.5;
 }
 
 :root {
@@ -574,9 +575,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .pcMenubar-container
-  > .pcMenubar-sections
-  > :first-child:hover
-  .pcMenu-container {
+> .pcMenubar-sections
+> :first-child:hover
+.pcMenu-container {
   position: absolute;
   width: 100vw;
   height: 65vh;
@@ -586,9 +587,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .pcMenubar-container
-  > .pcMenubar-sections
-  > :first-child:hover
-  .pcMenu-overLay {
+> .pcMenubar-sections
+> :first-child:hover
+.pcMenu-overLay {
   animation: fadeIn 0.2s ease forwards;
 }
 
@@ -1177,7 +1178,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: var(--xlg-radius);
   position: relative;
   background: url("../Images/Products/AmazingSuperMarket/Pattern.svg") left
-    center no-repeat;
+  center no-repeat;
   overflow: hidden;
 }
 
@@ -1469,12 +1470,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 .baseOnYourTaste-boxes
-  .baseOnYourTaste-box:not(:nth-child(3)):not(:nth-child(5)) {
+.baseOnYourTaste-box:not(:nth-child(3)):not(:nth-child(5)) {
   border-left: 1px solid var(--color-neutral-100);
 }
 
 .baseOnYourTaste-boxes
-  .baseOnYourTaste-box:not(:nth-child(4)):not(:nth-child(5)) {
+.baseOnYourTaste-box:not(:nth-child(4)):not(:nth-child(5)) {
   border-bottom: 1px solid var(--color-neutral-100);
 }
 
@@ -1497,7 +1498,7 @@ body::-webkit-scrollbar-thumb {
 .digiClub-container {
   width: 100%;
   background: linear-gradient(76.02deg, #35a6c8 33.32%, #007295 71.55%),
-    radial-gradient(21.29% 87.33% at 50% 50.67%, #7cf2f6 0, #35a6c8 100%);
+  radial-gradient(21.29% 87.33% at 50% 50.67%, #7cf2f6 0, #35a6c8 100%);
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -1844,8 +1845,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .mobileFooterAdCard-container
-  > .mobileFooterAdCard-title-container
-  > span:last-child {
+> .mobileFooterAdCard-title-container
+> span:last-child {
   font-size: var(--md1);
   font-weight: 700;
 }
@@ -1902,6 +1903,7 @@ body::-webkit-scrollbar-thumb {
   height: 50px;
   width: 100%;
   top: 2.5px;
+  z-index: 5;
 }
 
 .collapsibleHeader-container > span {
@@ -2084,22 +2086,23 @@ body::-webkit-scrollbar-thumb {
 }
 
 #minorContainer .modalContainer .modalBox {
-  display: block;
+  display: flex;
   width: auto;
   height: auto;
   position: absolute;
   overflow: visible;
+  justify-content: center;
 }
 
 .superMarket-modalBox {
   display: flex;
-  width: 460px;
+  width: 81%;
   height: 354px;
   background-color: white;
   border-radius: var(--scrollbar-fix);
   padding: 20px;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .superMarket-modalBox .superMarket-modalBox-header {
@@ -2138,7 +2141,7 @@ body::-webkit-scrollbar-thumb {
 .superMarket-modalBox-card {
   display: flex;
   flex-grow: 1;
-  height: 250px;
+  height: 100%;
   border-radius: var(--scrollbar-fix);
   flex-direction: column;
   padding: 18px 18px 18px 0px;
@@ -2197,8 +2200,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .superMarket-modalBox-card > img {
-  width: 130px;
-  height: 130px;
+  width: 65%;
   align-self: flex-end;
   margin-top: auto;
 }
@@ -2353,16 +2355,17 @@ body::-webkit-scrollbar-thumb {
   }
 
   .support-container {
-    display: block;
-    padding: 12px;
+    display: flex;
+    width: 48px;
     height: 48px;
     background-color: var(--color-primary-700);
     border-radius: var(--oval-radius);
-    width: fit-content;
     position: fixed;
     bottom: 32px;
     right: 50px;
     z-index: 4;
+    justify-content: center;
+    align-items: center;
   }
 
   .topBanner-container {
