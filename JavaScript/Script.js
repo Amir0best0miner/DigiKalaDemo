@@ -400,7 +400,6 @@ function pcMenubarAnimation_handler() {
 }
 
 function mobileFooterCollapsiblesClick(clicked) {
-
   let collapsibleContent = clicked.parentElement.querySelector('.collapsibleContent-container');
   let arrow = clicked.parentElement.querySelector('svg');
   console.log(collapsibleContent.scrollHeight);
@@ -408,10 +407,10 @@ function mobileFooterCollapsiblesClick(clicked) {
   if (collapsibleContent.hasAttribute('mobilePartnersCompany')) {
     if (collapsibleContent.style.height === '0px') {
       collapsibleContent.style.height = collapsibleContent.scrollHeight + 'px';
-      collapsibleContent.style.paddingBottom = '0';
+      collapsibleContent.style.paddingBottom = '15px';
     } else {
       collapsibleContent.style.height = '0px';
-      collapsibleContent.style.paddingBottom = '15px';
+      collapsibleContent.style.paddingBottom = '0';
     }
   }
   else if (collapsibleContent.style.height === '0px') {
@@ -419,7 +418,7 @@ function mobileFooterCollapsiblesClick(clicked) {
     collapsibleContent.style.padding = '15px 0 5px';
   } else {
     collapsibleContent.style.height = '0px';
-    collapsibleContent.style.padding = '0';
+    collapsibleContent.style.paddingBottom = '0';
   }
   if (arrow.hasAttribute('closed')) {
     arrow.removeAttribute('closed');
@@ -506,26 +505,45 @@ function pcFooterNewsEmail_checking() {
   });
 }
 
-function modalHandler() {
-  const modalBox = document.querySelector(".modalBox");
-  const modalOverlay = document.querySelector(".modalOverlay");
-  let modals = document.querySelectorAll(".hasModal");
-  let str = ``;
+const modalHandler = {
+  modalBox: document.querySelector(".modalBox"),
+  modalOverlay: document.querySelector(".modalOverlay"),
+  modals: document.querySelectorAll(".hasModal"),
+  str: ``,
+  supportContainer: document.querySelector(".support-container"),
+  modalContainer: document.querySelector(".modalContainer"),
+  bodyContainer: document.querySelector(".body-container"),
+  body: document.querySelector("body"),
+  modalIsOpen: false,
 
-  modals.forEach(modal => {
-    modal.addEventListener("click", () => {
-      const modalId = modal.id;
+  init() {
+    this.modalIsOpen = this.modalContainer.classList.contains("modalFadeIn");
+    this.windowResize();
+    this.modalClick();
+  },
 
-      switch (modalId) {
-        case "superMarketContainer":
-          str = `
+  windowResize() {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth < 1024 && this.modalIsOpen) this.modalCloses();
+    });
+  },
+
+  modalClick() {
+    this.modals.forEach((modal) => {
+      modal.addEventListener("click", () => {
+        if (window.innerWidth < 1024) return;
+        const modalId = modal.id;
+
+        switch (modalId) {
+          case "superMarketContainer":
+            this.str = `
           <div class="superMarket-modalBox">
           <div class="superMarket-modalBox-header">
             <div class="superMarket-modalBox-titles">
               <span>یکی از سوپرمارکت‌های زیر را انتخاب کنید</span>
               <span>فقط در شهرهای تهران و کرج</span>
             </div>
-            <div class="modalCloseBtn flex-shrink-0 cursor-pointer" onclick="modalCloses()">
+            <div class="modalCloseBtn flex-shrink-0 cursor-pointer" onclick="modalHandler.modalCloses()">
               <svg width="24px" height="24px" fill="rgb(158, 158, 158)">
                 <use xlink:href="#close"></use>
               </svg>
@@ -561,46 +579,40 @@ function modalHandler() {
           </div>
         </div>
           `;
-          break;
-        case "bodyGadgetShowMore":
+            break;
+          case "bodyGadgetShowMore":
+            break;
+          default:
+            console.log("Clicked Modal is Wrong!");
+            return;
+        }
 
-          break;
-        default:
-          console.log("Clicked Modal is Wrong!");
-          break;
-      }
-      modalBox.innerHTML = str;
-      modalOpens()
+        this.modalBox.innerHTML = this.str;
+        this.modalOpens();
+      });
     });
-  });
-  modalOverlay.addEventListener("click", () => {
-    modalCloses();
-  });
-}
 
-function modalOpens() {
-  const supportContainer = document.querySelector(".support-container");
-  const modalContainer = document.querySelector(".modalContainer");
-  const bodyContainer = document.querySelector(".body-container");
-  const body = document.querySelector("body");
+    this.modalOverlay.addEventListener("click", () => {
+      this.modalCloses();
+    });
+  },
 
-  OverflowHidden(body);
-  modalContainer.classList.toggle("modalFadeIn");
-  ScrollbarShift_fix(bodyContainer);
-  supportContainer.style.marginRight = "8px";
-}
+  modalOpens() {
+    OverflowHidden(this.body);
+    this.modalContainer.classList.add("modalFadeIn");
+    ScrollbarShift_fix(this.bodyContainer);
+    this.supportContainer.style.marginRight = "8px";
+    this.modalIsOpen = true;
+  },
 
-function modalCloses() {
-  const supportContainer = document.querySelector(".support-container");
-  const modalContainer = document.querySelector(".modalContainer");
-  const bodyContainer = document.querySelector(".body-container");
-  const body = document.querySelector("body");
-
-  OverflowShow(body);
-  modalContainer.classList.toggle("modalFadeIn");
-  ScrollbarShift_fix(bodyContainer);
-  supportContainer.style.marginRight = "0";
-}
+  modalCloses() {
+    OverflowShow(this.body);
+    this.modalContainer.classList.remove("modalFadeIn");
+    ScrollbarShift_fix(this.bodyContainer);
+    this.supportContainer.style.marginRight = "0";
+    this.modalIsOpen = false;
+  },
+};
 
 function megaMenuOpensHandler() {
   const hoveredSection = document.querySelector("#megaMenuOpensSection");
@@ -642,5 +654,5 @@ window.addEventListener('resize', updateMainSliderImages);
 bodyGadget_scrollBar();
 amazingOffer_timer();
 pcMenubarAnimation_handler();
-modalHandler();
+modalHandler.init();
 megaMenuOpensHandler();
